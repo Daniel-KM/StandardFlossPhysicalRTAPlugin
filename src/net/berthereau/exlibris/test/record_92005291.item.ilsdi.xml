@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dlf:collection xmlns:dlf="http://diglib.org/ilsdi/1.1">
+    <dlf:record>
+        <dlf:bibliographic id="92005291" />
+        <dlf:items>
+            <dlf:item id="S02420717N">
+                <dlf:simpleavailability>
+                    <dlf:identifier>S02420717N</dlf:identifier>
+                    <dlf:availabilitystatus>not available</dlf:availabilitystatus>
+                    <dlf:availabilitymsg>Held for Patron (2
+                        requests)</dlf:availabilitymsg>
+                    <dlf:location>D. H. Hill Library</dlf:location>
+                </dlf:simpleavailability>
+            </dlf:item>
+            <dlf:item id="S01149512N">
+                <dlf:simpleavailability>
+                    <dlf:identifier>S01149512N</dlf:identifier>
+                    <dlf:availabilitystatus>available</dlf:availabilitystatus>
+                    <dlf:location>D. H. Hill Library, Call # QA107 .S73</dlf:location>
+                    <dlf:availabilitymsg>library use only</dlf:availabilitymsg>
+                </dlf:simpleavailability>
+            </dlf:item>
+        </dlf:items>
+    </dlf:record>
+</dlf:collection>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dlf:collection xmlns:dlf="http://diglib.org/ilsdi/1.1">
+    <dlf:record>
+        <dlf:bibliographic id="92005291" />
+        <dlf:simpleavailability>
+            <dlf:identifier>92005291</dlf:identifier>
+            <dlf:availabilitystatus>available</dlf:availabilitystatus>
+            <dlf:availabilitymsg>1 copy available, library use only</dlf:availabilitymsg>
+            <dlf:location>D. H. Hill Library, Call # QA107 .S73</dlf:location>
+        </dlf:simpleavailability>
+    </dlf:record>
+</dlf:collection>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dlf:collection
+    xmlns:dlf="http://diglib.org/ilsdi/1.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://diglib.org/ilsdi/1.1
+    http://diglib.org/architectures/ilsdi/schemas/1.1/dlfexpanded.xsd">
+    <dlf:record>
+        <dlf:bibliographic id="1" />
+        <dlf:items>
+            <dlf:item id="1">
+                <dlf:simpleavailability>
+                    <dlf:identifier>1</dlf:identifier>
+                    <dlf:availabilitystatus>available</dlf:availabilitystatus>
+                    <dlf:location>Bibliothèque Jean Prunier</dlf:location>
+                </dlf:simpleavailability>
+            </dlf:item>
+        </dlf:items>
+    </dlf:record>
+    <dlf:record>
+        <dlf:bibliographic id="2" />
+        <dlf:items>
+            <dlf:item id="2">
+                <dlf:simpleavailability>
+                    <dlf:identifier>2</dlf:identifier>
+                    <dlf:availabilitystatus>available</dlf:availabilitystatus>
+                    <dlf:location>Bibliothèque Jean Prunier</dlf:location>
+                </dlf:simpleavailability>
+            </dlf:item>
+        </dlf:items>
+    </dlf:record>
+    <dlf:record>
+        <dlf:bibliographic id="99999" />
+        <dlf:items>
+            <dlf:item id="99999">
+                <dlf:simpleavailability>
+                    <dlf:identifier>99999</dlf:identifier>
+                    <dlf:availabilitystatus>unknown</dlf:availabilitystatus>
+                    <dlf:availabilitymsg>Error: could not retrieve availability for this ID</dlf:availabilitymsg>
+                </dlf:simpleavailability>
+            </dlf:item>
+        </dlf:items>
+    </dlf:record>
+</dlf:collection>
