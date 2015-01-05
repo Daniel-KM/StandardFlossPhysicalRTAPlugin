@@ -1,4 +1,4 @@
-package net.berthereau.exlibris;
+package net.berthereau.exlibris.rta;
 
 import java.util.Collections;
 import java.util.HashMap;

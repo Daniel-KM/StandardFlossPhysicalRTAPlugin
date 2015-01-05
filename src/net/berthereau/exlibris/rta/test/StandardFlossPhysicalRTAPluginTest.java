@@ -1,4 +1,4 @@
-package net.berthereau.exlibris.test;
+package net.berthereau.exlibris.rta.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,7 +10,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-import net.berthereau.exlibris.StandardFlossPhysicalRTAPlugin;
+import net.berthereau.exlibris.rta.StandardFlossPhysicalRTAPlugin;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ import com.exlibris.primo.api.plugins.rta.RTARequest;
 
 /**
  * Allows to test the plugin without the proprietary API nor access to Primo.
- * 
+ *
  * Currently, tests use files located at "http://localhost/exlibris/test/". This
  * can be changed below.
  */
@@ -200,7 +200,7 @@ public class StandardFlossPhysicalRTAPluginTest {
 
     /**
      * Helper to get a rta request.
-     * 
+     *
      * @param rtaRequest
      *            The request to update.
      * @param recordIdentifier

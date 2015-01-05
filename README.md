@@ -3,9 +3,9 @@ Standard Floss Physical Real Time Availability Plugin for Ex Libris® Primo™
 
 [Standard Floss Physical RTA plugin] is a plugin for [Primo]™, the proprietary
 discovery tool of [Ex Libris]®, that allows to check in real time the
-availability of an item, usualy a book or a journal, on remote systems that
+availability of an item, usually a book or a journal, on remote systems that
 implement the [ILS-DI] standard (Integrated library system - Discovery
-interface) of the [Digital Library Federation] (DLF).
+interface) of the [Digital Library Federation].
 
 Without this plugin, [Primo]™ can check only items of other softwares of
 [Ex Libris]®. With it, [Primo]™ can check availability on many open source
@@ -28,17 +28,17 @@ Primo API.
 
 Furthermore, it uses a pseudo-code for the Primo Common API, that is needed to
 make the plugin works, but whose binary, source and full documentation are not
-freely available. In pratice, the virtual RTAplugin has been developed from the
+freely available. In practice, the virtual RTAplugin has been developed from the
 partial informations published on the [RTA page] of Primo™.
 
-So this is a beta realease. All discribed features work, but have not been
+So this is a beta release. All described features work, but have not been
 checked on a live system. A final release will be published as soon as a true
 access to  the Primo API will be available (at least the binary).
 
 Note for developers: because the public documentation of the closed and
 proprietary API  of Primo™ is incomplete (even the version of Java used by
-Primo™ is unknown, not publicly available and forbidden to be sought), some
-checks, loops, structures, imports, etc. may be useless or not exactly or
+Primo™ (1.6) is unknown, not publicly available and forbidden to be sought),
+some checks, loops, structures, imports, etc. may be useless or not exactly or
 optimally integrated.
 
 Finally, main of the code is not specific to ILS-DI. In fact, the plugin creates
@@ -82,6 +82,18 @@ require to return the location and this location is not always the library, so
 the response can't be checked directly against the mapping of names of libraries
 in ILS and in Primo. Nevertheless, the item level is supported, because the
 library code is not used: the item code and the RTA base url are enough.
+
+
+Mapping between ILS-DI and Primo API
+------------------------------------
+
+ILS-DI knows four status of availability, but Primo API knows only three. So an
+inaccurate mapping is needed, as below:
+
+- Unknown => Check holdings
+- Available => Available
+- Not available => Unavailable
+- Possibly available => Check holdings
 
 
 Troubleshooting

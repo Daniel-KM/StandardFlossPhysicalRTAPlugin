@@ -1,4 +1,4 @@
-package net.berthereau.exlibris.test;
+package net.berthereau.exlibris.rta.test;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +8,7 @@ import com.exlibris.primo.api.common.IMappingTablesFetcher;
 /**
  * Returns examples used in the recommendation and in Koha without fetching from
  * Primo.
- * 
+ *
  * This class is made for testing purpose only.
  */
 public class MappingTablesFetcherTestUse implements IMappingTablesFetcher {

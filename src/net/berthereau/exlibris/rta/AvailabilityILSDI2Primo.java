@@ -1,4 +1,4 @@
-package net.berthereau.exlibris;
+package net.berthereau.exlibris.rta;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -42,7 +42,7 @@ public class AvailabilityILSDI2Primo {
 
     /**
      * Check if there is a mapping for any status.
-     * 
+     *
      * @param status
      * @return
      */
@@ -56,9 +56,9 @@ public class AvailabilityILSDI2Primo {
 
     /**
      * Get Primo holding status from ILS-DI availability status.
-     * 
+     *
      * TODO Depending on closed Primo API, throws IllegalArgumentException.
-     * 
+     *
      * @param status
      * @return
      */

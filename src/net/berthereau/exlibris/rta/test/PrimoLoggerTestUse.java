@@ -1,10 +1,10 @@
-package net.berthereau.exlibris.test;
+package net.berthereau.exlibris.rta.test;
 
 import com.exlibris.primo.api.common.IPrimoLogger;
 
 /**
  * This class implements IPrimoLogger interface as a console logger.
- * 
+ *
  * This class is made for testing purpose only.
  */
 public class PrimoLoggerTestUse implements IPrimoLogger {

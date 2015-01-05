@@ -1,4 +1,4 @@
-package net.berthereau.exlibris;
+package net.berthereau.exlibris.rta;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +43,7 @@ import com.exlibris.primo.api.plugins.rta.RTARequest;
 /**
  * Check the availability of an item on a remote system that implements the
  * ILS-DI standard of DLF.
- * 
+ *
  * <p>
  * To be used, some parameters should be set. First, the base url to request rta
  * of a record on the remote system should be set in the Institution params, for
@@ -67,13 +67,13 @@ import com.exlibris.primo.api.plugins.rta.RTARequest;
  * format can be used. This parameter is currently unmanaged.</li>
  * </ul>
  * </p>
- * 
+ *
  * @internal Because the public documentation of the closed and proprietary API
  *           of Primo is incomplete (even the version of Java used by Primo is
  *           unknown, not publicly available and forbidden to be sought), some
  *           checks, loops, structures, imports, etc. may be useless or not
  *           exactly or optimally integrated.
- * 
+ *
  * @see https://developers.exlibrisgroup.com/primo/integrations/frontend/rta
  * @author Daniel Berthereau <Daniel.java@Berthereau.net>
  */
@@ -105,8 +105,8 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
     private XPathExpression exprCountItemsUnavailable;
     private XPathExpression exprItemsList;
     private XPathExpression exprItemId;
-    private XPathExpression exprLocation;
-    
+    // private XPathExpression exprLocation;
+
     /**
      * Primo invokes this empty constructor to creates this RTA plugin.
      */
@@ -118,7 +118,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
     /**
      * Initializes the plugin and provides access to utilities and parameters
      * defined in the Plugins Parameters mapping table.
-     * 
+     *
      * TODO Throws exception in case of init failure? The example and the
      * presentation don't talk about that.
      */
@@ -164,13 +164,13 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
             logger.error("Cannot initialize " + getClass() + ": " + e.getMessage(), e);
             return;
         }
-        
+
         logger.info("Plugin " + getClass() + " is initialized.");
     }
 
     /**
      * Check and set plugins params.
-     * 
+     *
      * @param params
      *            List of the plugin parameters set in the admin interface.
      * @return void
@@ -239,9 +239,9 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Prepare XPath processor to speed up process..
-     * 
+     *
      * @return void
-     * @throws XPathExpressionException 
+     * @throws XPathExpressionException
      */
     private void initXPathProcessor() throws XPathExpressionException {
         XPathFactory xpathFactory = XPathFactory.newInstance();
@@ -251,7 +251,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
         // ctx.addNamespace("ncip", "http://ncip.envisionware.com/documentation/ncip_v1_0.xsd");
         // ctx.addNamespace("holdings", "http://www.loc.gov/standards/iso20775/");
         xpath.setNamespaceContext(ctx);
-        
+
         // Currently, only accept DLF Simple Availability xml format.
         exprRecordsList = xpath.compile("/dlf:collection/dlf:record");
         exprRecordId = xpath.compile("dlf:bibliographic/@id");
@@ -263,16 +263,16 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
                 xpath.compile("count(dlf:items/dlf:item/dlf:simpleavailability/dlf:availabilitystatus[normalize-space(text())='not available'])");
         exprItemsList = xpath.compile("dlf:items/dlf:item");
         exprItemId = xpath.compile("normalize-space(dlf:simpleavailability/dlf:identifier)");
-        exprLocation = xpath.compile("normalize-space(dlf:simpleavailability/dlf:location)");
+        // exprLocation = xpath.compile("normalize-space(dlf:simpleavailability/dlf:location)");
     }
-    
+
     /**
      * Get the up-to-date availability status of a list or records in a list of
      * libraries that are set in a list of RTA requests.
-     * 
+     *
      * If there is no result, for whatever reason (bad request, time out, etc.),
      * no update is done.
-     * 
+     *
      * TODO This process can be simplified if rta requests for different
      * institutions are send to multiple instances of this plugin, but this is
      * not clear in the documentation of Primo API, and its source is closed.
@@ -347,13 +347,13 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Re-map rta requests by institution, remote record ids and libraries.
-     * 
+     *
      * The institution is identified by its rta base url, because we don't know
      * if there is an Institution class that can be used.
-     * 
+     *
      * This helper is useful to manage update of multiple records for multiple
      * libraries. The Primo record id is not needed for that.
-     * 
+     *
      * @param rtaRequests
      * @return
      */
@@ -397,7 +397,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
                 else {
                     records = recordsByInstitution.get(rtaBaseUrl);
                 }
-                
+
                 if (!records.containsKey(recordIdentifier)) {
                     recordsLibraries = new ArrayList<Library>();
                     records.put(recordIdentifier, recordsLibraries);
@@ -417,9 +417,9 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
     /**
      * Calls ILS-DI service "GetAvailability", passing it the record ids and
      * receiving back information for each library of the institution.
-     * 
+     *
      * The standard ILS-DI allows to pass multiple record ids by query.
-     * 
+     *
      * @param recordIds
      *            The list of unique identifiers of the records to check on the
      *            remote system.
@@ -470,13 +470,13 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
     /**
      * Helper to convert returned string as xml standard of DLF for ILS-DI into
      * a java map, that can manage bib and item level.
-     * 
+     *
      * @internal Currently, process is done via a simple XPath and not via a
      *           StAX model, because ILS-DI responses with the default format
      *           (SimpleAvailability) are light.
-     * 
+     *
      * @see http://diglib.org/ilsdi/1.1
-     * 
+     *
      * @param xmlString
      * @return Extracted availability.
      */
@@ -504,7 +504,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
             records = (NodeList) exprRecordsList.evaluate(doc, XPathConstants.NODESET);
             for (int i = 0, num = records.getLength(); i < num; i++) {
                 record = records.item(i);
-                
+
                 switch (idType) {
                     case "bib":
                         switch (returnType) {
@@ -517,10 +517,10 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
                                 }
                                 results.put(recordId, statusPrimo);
                                 break;
-                                
+
                             case "item":
                                 recordId = (String) exprRecordId.evaluate(record, XPathConstants.STRING);
-                                // If one is available, returns available. If 
+                                // If one is available, returns available. If
                                 // all are not available, returns unavailable;
                                 // else returns check holdings.
                                 countItems = ((Double) exprCountItems.evaluate(record, XPathConstants.NUMBER))
@@ -545,7 +545,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
                                 break;
                         }
                         break;
-                        
+
                     case "item":
                         switch (returnType) {
                             case "bib":
@@ -594,9 +594,9 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Join elements of a collection, set or list of strings with a delimiter.
-     * 
+     *
      * TODO Use Apache commons?
-     * 
+     *
      * @param str
      * @param delimiter
      * @return
@@ -617,7 +617,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Provides a quick way to secure the format of a url.
-     * 
+     *
      * @param pUrl
      * @return Checked and cleaned url.
      */
@@ -644,7 +644,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Get content from a remote system via http.
-     * 
+     *
      * @param pUrl
      *            The url to fetch.
      * @return Content get from the remote system.
@@ -716,7 +716,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
     /**
      * Check and convert a string into an xml document.
-     * 
+     *
      * @param xmlString
      * @return XML Document.
      */
