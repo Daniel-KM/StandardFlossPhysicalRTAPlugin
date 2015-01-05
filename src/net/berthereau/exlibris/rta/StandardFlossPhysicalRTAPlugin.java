@@ -539,7 +539,7 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
                                                     .intValue();
                                     statusPrimo = (countUnavailable == countItems)
                                             ? HoldingStatus.UNAVAILABLE
-                                            : HoldingStatus.CHECK_HOLDINGS;
+                                            : HoldingStatus.CHECKHOLDING;
                                 }
                                 results.put(recordId, statusPrimo);
                                 break;

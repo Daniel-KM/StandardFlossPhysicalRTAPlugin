@@ -168,7 +168,7 @@ public class StandardFlossPhysicalRTAPluginTest {
         rta.updateAvailability(rtaRequests);
         assertEquals(HoldingStatus.AVAILABLE, rtaRequest_1.getLibraries().get(0).getHoldingStatus());
         assertEquals(HoldingStatus.AVAILABLE, rtaRequest_2.getLibraries().get(0).getHoldingStatus());
-        assertEquals(HoldingStatus.CHECK_HOLDINGS, rtaRequest_99999.getLibraries().get(0).getHoldingStatus());
+        assertEquals(HoldingStatus.CHECKHOLDING, rtaRequest_99999.getLibraries().get(0).getHoldingStatus());
     }
 
     @Test
@@ -195,7 +195,7 @@ public class StandardFlossPhysicalRTAPluginTest {
         assertEquals(HoldingStatus.AVAILABLE, rtaRequest.getLibraries().get(0).getHoldingStatus());
         assertEquals(HoldingStatus.AVAILABLE, rtaRequest_1.getLibraries().get(0).getHoldingStatus());
         assertEquals(HoldingStatus.AVAILABLE, rtaRequest_2.getLibraries().get(0).getHoldingStatus());
-        assertEquals(HoldingStatus.CHECK_HOLDINGS, rtaRequest_99999.getLibraries().get(0).getHoldingStatus());
+        assertEquals(HoldingStatus.CHECKHOLDING, rtaRequest_99999.getLibraries().get(0).getHoldingStatus());
     }
 
     /**
@@ -217,7 +217,7 @@ public class StandardFlossPhysicalRTAPluginTest {
         library.setLibraryCode("DHHL");
         library.setCollection("Heritage");
         library.setCallNumber("QA241 .S53 2007");
-        library.setHoldingStatus(HoldingStatus.CHECK_HOLDINGS);
+        library.setHoldingStatus(HoldingStatus.CHECKHOLDING);
 
         switch (recordIdentifier) {
         // Sample from DLF_ILS_Discovery_1.1-Dec8, Appendix 4.

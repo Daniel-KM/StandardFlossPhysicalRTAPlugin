@@ -24,19 +24,19 @@ public class AvailabilityILSDI2Primo {
     private static Map<AvailabilityStatus, HoldingStatus> initMap() {
         Map<AvailabilityStatus, HoldingStatus> m =
                 new EnumMap<>(AvailabilityStatus.class);
-        m.put(AvailabilityStatus.UNKNOWN, HoldingStatus.CHECK_HOLDINGS);
+        m.put(AvailabilityStatus.UNKNOWN, HoldingStatus.CHECKHOLDING);
         m.put(AvailabilityStatus.AVAILABLE, HoldingStatus.AVAILABLE);
         m.put(AvailabilityStatus.NOT_AVAILABLE, HoldingStatus.UNAVAILABLE);
-        m.put(AvailabilityStatus.POSSIBLY_AVAILABLE, HoldingStatus.CHECK_HOLDINGS);
+        m.put(AvailabilityStatus.POSSIBLY_AVAILABLE, HoldingStatus.CHECKHOLDING);
         return Collections.unmodifiableMap(m);
     }
 
     private static Map<String, HoldingStatus> initEsMap() {
         Map<String, HoldingStatus> m = new HashMap<>();
-        m.put(AvailabilityStatus.UNKNOWN.toString(), HoldingStatus.CHECK_HOLDINGS);
+        m.put(AvailabilityStatus.UNKNOWN.toString(), HoldingStatus.CHECKHOLDING);
         m.put(AvailabilityStatus.AVAILABLE.toString(), HoldingStatus.AVAILABLE);
         m.put(AvailabilityStatus.NOT_AVAILABLE.toString(), HoldingStatus.UNAVAILABLE);
-        m.put(AvailabilityStatus.POSSIBLY_AVAILABLE.toString(), HoldingStatus.CHECK_HOLDINGS);
+        m.put(AvailabilityStatus.POSSIBLY_AVAILABLE.toString(), HoldingStatus.CHECKHOLDING);
         return Collections.unmodifiableMap(m);
     }
 

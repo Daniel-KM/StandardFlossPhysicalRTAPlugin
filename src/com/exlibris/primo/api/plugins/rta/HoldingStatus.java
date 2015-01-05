@@ -10,7 +10,7 @@ public enum HoldingStatus {
     // TODO Check proprietary Primo API holdings status and simplify if needed.
     AVAILABLE("Available"),
     UNAVAILABLE("Unavailable"),
-    CHECK_HOLDINGS("Check holdings");
+    CHECKHOLDING("Check holdings");
 
     private String name = "";
 

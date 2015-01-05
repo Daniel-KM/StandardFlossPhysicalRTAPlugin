@@ -52,6 +52,10 @@ Installation
 
 Follow the instructions detailed on the [RTA page].
 
+To test with or without the Primo API jar, just exclude virtual API and change
+the build path. There is a test environment in the Primo API, but no details on
+how to use it.
+
 
 Configuration
 -------------
