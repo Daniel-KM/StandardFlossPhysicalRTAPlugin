@@ -23,11 +23,11 @@ import com.exlibris.primo.api.plugins.rta.RTARequest;
 /**
  * Allows to test the plugin without the proprietary API nor access to Primo.
  *
- * Currently, tests use files located at "http://localhost/exlibris/test/". This
+ * Currently, tests use raw xml files located at "http://localhost/ilsdi/". This
  * can be changed below.
  */
 public class StandardFlossPhysicalRTAPluginTest {
-    private String localServer = "http://localhost/exlibris/test/";
+    private String localServer = "http://localhost/ilsdi/";
 
     private StandardFlossPhysicalRTAPlugin rta = new StandardFlossPhysicalRTAPlugin();
 
