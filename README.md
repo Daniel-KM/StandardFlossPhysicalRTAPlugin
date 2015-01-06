@@ -13,6 +13,9 @@ softwares, as [Koha] and some other proprietary softwares.
 
 The supported version of the ILS-DI standard is release 1.1 of December 8, 2008.
 
+This is a beta release. All described features work in a virtual environment. It
+is currently been tested on a live system.
+
 
 Limits of an open source plugin for a proprietary software
 ----------------------------------------------------------
@@ -26,14 +29,16 @@ So this plugin may become useless in an undetermined future. Moreover, it can be
 broken at any time and without any warning by any update of the proprietary
 Primo API.
 
-Furthermore, it uses a pseudo-code for the Primo Common API, that is needed to
-make the plugin works, but whose binary, source and full documentation are not
-freely available. In practice, the virtual RTAplugin has been developed from the
-partial informations published on the [RTA page] of Primo™.
+In practice, the plugin has been developed from the partial informations
+published on the [RTA page] of Primo™. Unfortunately, this presentation is
+incomplete. Accordingly, as the binary, the source and the full documentation
+are not freely available (and the best documentation is generally inside the
+code itself), the development of this free plugin for a proprietary software
+took at least two times longer than for a free software.
 
-So this is a beta release. All described features work, but have not been
-checked on a live system. A final release will be published as soon as a true
-access to  the Primo API will be available (at least the binary).
+Due to the lack of documentation, a virtual RTA package was first built as a
+pseudo-code for the Primo Common API. In other words, Ex Libris® wants that
+third party developers work for them for free, but doesn't even publish the API.
 
 Note for developers: because the public documentation of the closed and
 proprietary API  of Primo™ is incomplete (even the version of Java used by
@@ -157,7 +162,9 @@ Current maintainers:
 
 * Daniel Berthereau (see [Daniel-KM] on GitHub)
 
-First version of this plugin has been built for a personal study.
+First version of this plugin has been built for a personal study. The plugin has
+been tested  for [Paris Sciences et Lettres] Research University and for
+[Mines ParisTech].
 
 
 Copyright
@@ -177,3 +184,5 @@ Copyright
 [plugin issues]: https://github.com/Daniel-KM/StandardFlossPhysicalRTAPlugin/Issues
 [CeCILL-B]: http://www.cecill.info/licences/Licence_CeCILL-B_V1-en.html
 [Daniel-KM]: http://github.com/Daniel-KM "Daniel Berthereau"
+[Paris Sciences et Lettres]: http://www.univ-psl.fr
+[Mines ParisTech]: http://www.mines-paristech.fr
