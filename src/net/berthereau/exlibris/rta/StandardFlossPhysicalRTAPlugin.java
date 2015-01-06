@@ -59,10 +59,10 @@ import com.exlibris.primo.api.plugins.rta.RTARequest;
  * <li>Debug: If true, more log will be written in Primo logs.</li>
  * <li>ConnectionTimeout: Default is 1000 milliseconds.</li>
  * <li>ReadTimeout: Default is 1000 milliseconds.</li>
- * <li>IdType: Define if the record id passed to the remote system is a "bib"
- * (default) or an "item" one. It depends on the IdentifierXpath.</li>
+ * <li>IdType: Define if the record id passed to the remote system is a "bib" or
+ * an "item" (default). It depends on the IdentifierXpath.</li>
  * <li>ReturnType: Define the level of the response of the remote system. It can
- * be "bib" (default) or "item". It can't be "bib" if IdType is "item".</li>
+ * be "bib" or "item" (default). It can't be "bib" if IdType is "item".</li>
  * <li>ReturnFmt: Empty is the default, for Simple Availability. Any supported
  * format can be used. This parameter is currently unmanaged.</li>
  * </ul>
@@ -90,8 +90,8 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
     private boolean debug = false;
 
     // Plugins params that are specific to ILS-DI.
-    private String idType = "bib";
-    private String returnType = "bib";
+    private String idType = "item";
+    private String returnType = "item";
     // Only the default format is implemented.
     private String returnFmt = "";
 
@@ -198,29 +198,29 @@ public class StandardFlossPhysicalRTAPlugin implements PhysicalRTAPlugin {
 
         // Only two possible values for id_type: "bib" or "item".
         param = (String) params.get("IdType");
-        if (param == null || !param.equals("item")) {
-            idType = "bib";
-            if (!(param == null || param.isEmpty() || param.equals("bib"))) {
-                logger.warn("idType is malformed. The plugin will use the default.");
+        if (param == null || !param.equals("bib")) {
+            idType = "item";
+            if (!(param == null || param.isEmpty() || param.equals("item"))) {
+                logger.warn("idType is malformed. The plugin will use the default [item].");
             }
         }
         else {
-            idType = "item";
+            idType = "bib";
         }
 
         // Only two possible values for id_type: "bib" or "item".
         param = (String) params.get("ReturnType");
-        if (param == null || !param.equals("item")) {
-            returnType = "bib";
-            if (!(param == null || param.isEmpty() || param.equals("bib"))) {
-                logger.warn("ReturnType is malformed. The plugin will use the default.");
-            }
-            if (idType == "item") {
-                logger.warn("To use [item] as IdType and [bib] as ReturnType is currently unsupported.");
+        if (param == null || !param.equals("bib")) {
+            returnType = "item";
+            if (!(param == null || param.isEmpty() || param.equals("item"))) {
+                logger.warn("ReturnType is malformed. The plugin will use the default [item].");
             }
         }
         else {
-            returnType = "item";
+            returnType = "bib";
+            if (idType == "item") {
+                logger.warn("To use [item] as IdType and [bib] as ReturnType is currently unsupported.");
+            }
         }
 
         // Any value is possible, so it should be url encoded if not pure ascii.

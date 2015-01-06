@@ -62,7 +62,7 @@ Configuration
 
 To be used, some parameters should be set. First, the base url to request rta of
 a record on the remote system should be set in the Institution params, for
-example for Koha: `https://www.example.com/cgi-bin/koha/ilsdi.pl`. Second, in
+example for Koha: "https://www.example.com/cgi-bin/koha/ilsdi.pl". Second, in
 the Plugins Parameters Mapping Table, the first two values below are required
 (but are not used directly by the plugin). Next ones are optional.
 
@@ -73,10 +73,10 @@ the Plugins Parameters Mapping Table, the first two values below are required
 - Debug: If true, more log will be written in Primo logs.
 - ConnectionTimeout: Default is 1000 milliseconds.
 - ReadTimeout: Default is 1000 milliseconds.
-- IdType: Define if the record id passed to the remote system is a "bib"
-  (default) or an "item" one. It can depend on the IdentifierXpath.
+- IdType: Define if the record id passed to the remote system is a "bib" or an
+  "item" (default). It depend on the IdentifierXpath.
 - ReturnType: Define the level of the response of the remote system. It can be
-  "bib" (default) or "item". It can't be "bib" if IdType is "item".
+  "bib" or "item" (default). It can't be "bib" if IdType is "item".
 - ReturnFmt: Empty is the default, for Simple Availability. Any supported format
   can be used. This parameter is currently unmanaged.
 
@@ -84,8 +84,9 @@ Note on Item level: There may be some inconsistencies between ILS-DI and Primo
 API, whose documentation is not clear on that point. ILS-DI standard doesn't
 require to return the location and this location is not always the library, so
 the response can't be checked directly against the mapping of names of libraries
-in ILS and in Primo. Nevertheless, the item level is supported, because the
-library code is not used: the item code and the RTA base url are enough.
+in ILS and in Primo. Nevertheless, the item level is supported as long as the
+requested type is an item (this is the default), because the library code is not
+used: the item code and the RTA base url are enough.
 
 
 Mapping between ILS-DI and Primo API
