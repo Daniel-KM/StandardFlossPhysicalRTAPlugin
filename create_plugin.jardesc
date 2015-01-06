@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="StandardFlossPhysicalRTAPlugin/StandardFlossPhysicalRTAPlugin.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/StandardFlossPhysicalRTAPlugin/create_plugin.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/StandardFlossPhysicalRTAPlugin/Manifest.txt" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/StandardFlossPhysicalRTAPlugin/README.md"/>
+        <file path="/StandardFlossPhysicalRTAPlugin/.project"/>
+        <javaElement handleIdentifier="=StandardFlossPhysicalRTAPlugin/src&lt;net.berthereau.exlibris.rta"/>
+        <javaElement handleIdentifier="=StandardFlossPhysicalRTAPlugin/src&lt;org.diglib.ilsdi"/>
+        <file path="/StandardFlossPhysicalRTAPlugin/.classpath"/>
+    </selectedElements>
+</jardesc>
